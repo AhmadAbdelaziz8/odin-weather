@@ -1,19 +1,22 @@
 import "./style.css";
 
+// Function to generate the URL for the weather API request
 function generateURL(location) {
-  return `http://api.weatherapi.com/v1/forecast.json?key=1986480656ec490d950204923202611&q=${location}`;
+  const API_KEY = "1986480656ec490d950204923202611";
+  return `http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${location}`;
 }
 
+// DOM elements
 const input = document.querySelector("#search-city");
 const submitBtn = document.querySelector("#submit-btn");
-// DOM Elements that will be changed
 const cityName = document.querySelector("#city-name");
 const cityTemp = document.querySelector("#temp");
 const weatherCondition = document.querySelector("#weather-condition");
 const weatherDetails = document.querySelectorAll(".item-value");
 const [feelsLike, windDegree, humidity, uv, moon, sunRise] = weatherDetails;
 
-async function getCity(location) {
+// Function to fetch weather data for a given location
+async function fetchWeatherData(location) {
   try {
     const response = await fetch(generateURL(location), { mode: "cors" });
 
@@ -21,53 +24,73 @@ async function getCity(location) {
       throw new Error(`Failed to fetch weather data: ${response.statusText}`);
     }
 
-    const responseMap = await response.json(); // Await the parsed JSON
-    insertData(responseMap);
+    const data = await response.json();
+    updateWeatherInfo(data);
   } catch (error) {
-    alert("Error fetching weather data:", error);
+    handleError(error);
   }
 }
 
-function insertData(data) {
+// Function to update the UI with the fetched weather data
+function updateWeatherInfo(data) {
   console.log(data); // For debugging
-  cityName.textContent = `${data.location.name}, ${data.location.country}`;
-  cityTemp.textContent = `${data.current.temp_c}°C`;
-  weatherCondition.textContent = data.current.condition.text;
 
-  //   const sunriseTime = formatSunrise();
+  const { location, current, forecast } = data;
+  const { name, country } = location;
+  const {
+    temp_c,
+    condition,
+    feelslike_c,
+    wind_degree,
+    humidity: humidityValue,
+    uv,
+  } = current;
+  const { moon_phase, sunrise } = forecast.forecastday[0].astro;
 
-  processWeatherDetails(
-    data.current.feelslike_c,
-    data.current.wind_degree,
-    data.current.humidity,
-    data.current.uv,
-    data.forecast.forecastday[0].astro.moon_phase,
-    data.forecast.forecastday[0].astro.sunrise
+  // Update city and weather details in the UI
+  cityName.textContent = `${name}, ${country}`;
+  cityTemp.textContent = `${temp_c}°C`;
+  weatherCondition.textContent = condition.text;
+
+  updateWeatherDetails(
+    feelslike_c,
+    wind_degree,
+    humidityValue,
+    uv,
+    moon_phase,
+    sunrise
   );
 }
 
-function processWeatherDetails(
+// Function to update weather details like feels-like, wind, humidity, etc.
+function updateWeatherDetails(
   feelsLikeResponse,
   windDegreeResponse,
   humidityResponse,
   uvResponse,
   moonResponse,
-  sunRiseResponse
+  sunriseResponse
 ) {
   feelsLike.textContent = `${feelsLikeResponse}°C`;
   windDegree.textContent = windDegreeResponse;
   humidity.textContent = `${humidityResponse}%`;
   uv.textContent = uvResponse;
   moon.textContent = moonResponse;
-  sunRise.textContent = sunRiseResponse; // Display the formatted sunrise
+  sunRise.textContent = sunriseResponse;
 }
 
-// Event listener for the button
+// Function to handle errors in API calls
+function handleError(error) {
+  alert(`Error fetching weather data: ${error.message}`);
+}
+
+// Event listener for the submit button to trigger fetching weather data
 submitBtn.addEventListener("click", (e) => {
   e.preventDefault();
   const location = input.value.trim();
+
   if (location) {
-    getCity(location);
+    fetchWeatherData(location);
   } else {
     alert("Location input is empty!");
   }
