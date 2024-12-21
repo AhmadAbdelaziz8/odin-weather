@@ -1,0 +1,38 @@
+/* reset defaults in browsers */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* add control panel */
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  --primary-txt-color: rgba(245, 245, 245, 100);
+  --success-color: #28a745;
+  --info-color: #17a2b8;
+  --warning-color: #ffc107;
+  --danger-color: #dc3545;
+  --light-color: #f8f9fa;
+  --dark-color: #343a40;
+  --body-bg: #f8f9fa;
+  --body-color: #212529;
+  --link-color: #007bff;
+  --link-hover-color: #0056b3;
+  --link-hover-decoration: underline;
+  --font-family-sans-serif: "Nunito", sans-serif;
+  --font-family-monospace: "Courier New", monospace;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  /* set the background */
+  background-image: url(assets/background.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  color: var(--primary-txt-color);
+}
