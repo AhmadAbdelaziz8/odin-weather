@@ -8,7 +8,7 @@
 }
 /* add control panel */
 :root {
-  --primary-color: #007bff;
+  --primary-color: rgba(0, 0, 0, 0.4);
   --secondary-color: #6c757d;
   --primary-txt-color: rgba(245, 245, 245, 100);
   --success-color: #28a745;
@@ -24,10 +24,13 @@
   --link-hover-decoration: underline;
   --font-family-sans-serif: "Nunito", sans-serif;
   --font-family-monospace: "Courier New", monospace;
+  --padding: 20px;
 }
 
 body {
   font-family: "Roboto", sans-serif;
+  height: 100vh;
+  width: 100vw;
   /* set the background */
   background-image: url(assets/background.jpg);
   background-repeat: no-repeat;
@@ -35,4 +38,52 @@ body {
   background-attachment: fixed;
   background-size: cover;
   color: var(--primary-txt-color);
+  /* grid settlement */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.location-detail-container {
+  /* take the upper half */
+  grid-area: 1/1/2/-1;
+  /* center this specific container */
+  justify-self: center;
+  align-self: center;
+  /* color and sizing */
+  background-color: var(--primary-color);
+  width: 70%;
+  height: 40%;
+  padding: var(--padding);
+  border-radius: 30px;
+  /* children layout */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-items: center;
+}
+#temp {
+  font-size: 2em;
+  color: #ffa34e;
+}
+
+.city-details {
+  display: flex;
+  flex-direction: column;
+}
+.city-details div {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.search-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.search-section > input {
+  padding: var(--padding);
+  background-color: rgba(0, 0, 0, 0.7);
+  border: none;
+  border-radius: 10px;
 }

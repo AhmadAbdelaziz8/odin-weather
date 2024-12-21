@@ -4,13 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>weather app</title>
-    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="location-detail-container">
-      <h1>City</h1>
-      <h2>62</h2>
-      <h3>Cloudy</h3>
+      <!-- city details -->
+      <div class="city-details">
+        <h1>City</h1>
+        <div>
+          <h2 id="temp">62°</h2>
+          <h3>Cloudy</h3>
+        </div>
+      </div>
+      <!-- search bar -->
+      <form>
+        <div class="search-section">
+          <!-- <label for="search"></label> -->
+          <label for="search-city">search for your city</label>
+          <input
+            type="text"
+            name="search here"
+            id="search-city"
+            placeholder="type here..."
+          />
+        </div>
+      </form>
     </div>
     <div class="weather-detail-container"></div>
     <div class="weather-forcast-graph"></div>
