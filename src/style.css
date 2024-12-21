@@ -15,8 +15,8 @@
   --info-color: #17a2b8;
   --warning-color: #ffc107;
   --danger-color: #dc3545;
-  --light-color: #f8f9fa;
-  --dark-color: #343a40;
+  --primary-text-color: rgba(255, 255, 255, 1);
+  --secondary-text-color: rgba(125, 120, 120, 1);
   --body-bg: #f8f9fa;
   --body-color: #212529;
   --link-color: #007bff;
@@ -78,17 +78,50 @@ body {
   gap: 10px;
   align-items: center;
 }
+
+/* Search section */
 .search-section {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.search-section > input {
+#search-city {
   padding: var(--padding);
   background-color: rgba(0, 0, 0, 0.7);
+  color: var(--primary-text-color);
   border: none;
   border-radius: 10px;
+}
+.search-section > div {
+  display: flex;
+  gap: 10px;
+  padding: var(--padding);
+}
+
+#submit-btn {
+  background-color: #006400;
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 15px;
+  cursor: pointer;
+  /* center the arrow */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+  transition: transform 0.2s ease, background-color 0.3s ease; /* Smooth hover effect */
+}
+
+#submit-btn:hover {
+  background-color: #008000;
+  transform: scale(1.05);
+}
+
+/* Arrow styling */
+.arrow {
+  transition: transform 0.2s ease;
 }
 
 /* weather details */

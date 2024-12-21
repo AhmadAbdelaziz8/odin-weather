@@ -9,23 +9,40 @@
     <div class="location-detail-container">
       <!-- city details -->
       <div class="city-details">
-        <h1>City</h1>
+        <h1 id="city-name">City</h1>
         <div>
           <h2 id="temp">62°</h2>
-          <h3>Cloudy</h3>
+          <h3 id="weather-condition">Cloudy</h3>
         </div>
       </div>
+
       <!-- search bar -->
       <form>
         <div class="search-section">
           <!-- <label for="search"></label> -->
           <label for="search-city">search for your city</label>
-          <input
-            type="text"
-            name="search here"
-            id="search-city"
-            placeholder="type here..."
-          />
+          <div>
+            <input
+              type="text"
+              name="search here"
+              id="search-city"
+              placeholder="type here..."
+            />
+            <button type="submit" id="submit-btn">
+              <svg
+                class="arrow"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="white"
+                width="24px"
+                height="24px"
+              >
+                <path
+                  d="M13 3.5l-1.41 1.41L17.67 11H3v2h14.67l-6.08 6.09L13 20.5 22.5 12z"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
       </form>
     </div>
@@ -36,35 +53,33 @@
       <div class="weather-details-card">
         <div class="weather-details-item">
           <p class="item-title">feels like</p>
-          <p class="item-value">50</p>
+          <p class="item-value">--</p>
         </div>
         <div class="weather-details-item">
-          <p class="item-title">ENE wind</p>
-          <p class="item-value">13ml/hr</p>
+          <p class="item-title">wind degree</p>
+          <p class="item-value">--</p>
         </div>
         <div class="weather-details-item">
           <p class="item-title">Humidity</p>
-          <p class="item-value">82%</p>
+          <p class="item-value">--</p>
         </div>
         <div class="weather-details-item">
           <p class="item-title">UV</p>
-          <p class="item-value">0</p>
+          <p class="item-value">--</p>
         </div>
         <div class="weather-details-item">
-          <p class="item-title">Visbility</p>
-          <p class="item-value">7 mi</p>
+          <p class="item-title">moon</p>
+          <p class="item-value">--</p>
         </div>
         <div class="weather-details-item">
           <p class="item-title">pressure</p>
-          <p class="item-value">1022 hpa</p>
+          <p class="item-value">--</p>
         </div>
       </div>
     </div>
     <div class="weather-forcast-graph">
       <h2>5-day weather forecast</h2>
-      <div class="weather-details-card">
-        
-      </div>
+      <div class="weather-details-card"></div>
     </div>
   </body>
 </html>
