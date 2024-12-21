@@ -10,7 +10,6 @@
 :root {
   --primary-color: rgba(0, 0, 0, 0.4);
   --secondary-color: rgba(125, 120, 120, 0.1);
-  --primary-txt-color: rgba(245, 245, 245, 100);
   --success-color: #28a745;
   --info-color: #17a2b8;
   --warning-color: #ffc107;
@@ -38,7 +37,7 @@ body {
   background-position: center;
   background-attachment: fixed;
   background-size: cover;
-  color: var(--primary-txt-color);
+  color: var(--primary-text-color);
   /* grid settlement */
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -163,6 +162,9 @@ body {
   text-align: center;
   border-radius: 10px;
   box-sizing: border-box;
+}
+.item-title {
+  color: var(--secondary-text-color);
 }
 
 .weather-details-item .item-title,

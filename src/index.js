@@ -6,14 +6,12 @@ function generateURL(location) {
 
 const input = document.querySelector("#search-city");
 const submitBtn = document.querySelector("#submit-btn");
-// variable will be changed
+// DOM Elements that will be changed
 const cityName = document.querySelector("#city-name");
 const cityTemp = document.querySelector("#temp");
 const weatherCondition = document.querySelector("#weather-condition");
 const weatherDetails = document.querySelectorAll(".item-value");
-const weatherDetailsArray = [...weatherDetails];
-const [feelsLike, windDegree, humidity, uv, moon, pressure] = weatherDetails;
-// console.log(weatherDetailsArray);
+const [feelsLike, windDegree, humidity, uv, moon, sunRise] = weatherDetails;
 
 async function getCity(location) {
   try {
@@ -32,16 +30,19 @@ async function getCity(location) {
 
 function insertData(data) {
   console.log(data); // For debugging
-  cityName.textContent = `${data.location.name}, ${data.location.country}`; // Update city name
-  cityTemp.textContent = `${data.current.temp_c}°C`; // Update temperature in Celsius
-  weatherCondition.textContent = data.current.condition.text; // Update weather condition
+  cityName.textContent = `${data.location.name}, ${data.location.country}`;
+  cityTemp.textContent = `${data.current.temp_c}°C`;
+  weatherCondition.textContent = data.current.condition.text;
+
+  //   const sunriseTime = formatSunrise();
+
   processWeatherDetails(
     data.current.feelslike_c,
     data.current.wind_degree,
     data.current.humidity,
     data.current.uv,
     data.forecast.forecastday[0].astro.moon_phase,
-    data.current.feelslike_c
+    data.forecast.forecastday[0].astro.sunrise
   );
 }
 
@@ -51,14 +52,14 @@ function processWeatherDetails(
   humidityResponse,
   uvResponse,
   moonResponse,
-  pressureResponse
+  sunRiseResponse
 ) {
   feelsLike.textContent = `${feelsLikeResponse}°C`;
   windDegree.textContent = windDegreeResponse;
-  humidity.textContent = humidityResponse;
+  humidity.textContent = `${humidityResponse}%`;
   uv.textContent = uvResponse;
   moon.textContent = moonResponse;
-  pressure.textContent = pressureResponse;
+  sunRise.textContent = sunRiseResponse; // Display the formatted sunrise
 }
 
 // Event listener for the button
@@ -68,6 +69,6 @@ submitBtn.addEventListener("click", (e) => {
   if (location) {
     getCity(location);
   } else {
-    console.warn("Location input is empty!");
+    alert("Location input is empty!");
   }
 });
