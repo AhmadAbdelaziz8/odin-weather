@@ -103,7 +103,10 @@ body {
   padding: var(--padding);
   box-sizing: border-box;
 }
-
+.weather-details-container > h2 {
+  /* text-align: start; */
+  align-self: flex-start;
+}
 .weather-details-card {
   display: grid;
   gap: 10px;
