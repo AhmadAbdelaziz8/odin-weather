@@ -1,4 +1,17 @@
 # odin-weather
-figma design: inspired by "Vishisht Kapoor" at figma: https://www.figma.com/community/file/1288147890001374433
 
-background image: AI generated from freePik: https://www.freepik.com/free-ai-image/view-apocalyptic-dark-stormy-clouds_94166305.htm#fromView=keyword&page=1&position=11&uuid=1f64d092-3521-4431-afad-15083fc8c33a&new_detail=true
+This is a weather app built using HTML, CSS, and JavaScript. It allows users to check the weather of a specific city, displaying key information such as temperature, humidity, and weather condition. The app is responsive and works well on both desktop and mobile devices.
+
+# Features
+
+Responsive layout that adjusts for mobile devices.
+Displays current weather details like temperature, humidity, and conditions.
+Graphs the weather forecast using Google Charts.
+Designed with a visually appealing background and modern UI components.
+
+# Credits
+
+Weather App Concept: Based on the #odin-weather project.
+Design Inspiration: Figma design by Vishisht Kapoor. You can check out the design on Figma.
+Background Image: AI-generated background from Freepik.
+Graph Functionality: Powered by Google Charts.
