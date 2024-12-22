@@ -3,7 +3,7 @@ import "./style.css";
 // Function to generate the URL for the weather API request
 function generateURL(location) {
   const API_KEY = "1986480656ec490d950204923202611";
-  return `http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${location}&days=5`;
+  return `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${location}&days=5`;
 }
 
 // DOM elements
@@ -141,7 +141,7 @@ function drawChart() {
     chartArea: {
       top: "15%",
       bott: "15%",
-      // Center the graph in its container 
+      // Center the graph in its container
       left: "15%",
       right: "15%",
       width: "85%",
@@ -149,37 +149,37 @@ function drawChart() {
     },
     title: {
       textStyle: {
-        color: "#f97316", 
+        color: "#f97316",
         fontSize: 16,
-      }
+      },
     },
     legend: {
       textStyle: { color: "#ffffff" },
-      position: "top"
+      position: "top",
     },
     hAxis: {
       textStyle: { color: "#ffffff" },
       gridlines: { color: "#444444" },
-      baselineColor: "#666666"
+      baselineColor: "#666666",
     },
     vAxis: {
       textStyle: { color: "#ffffff" },
       gridlines: { color: "#444444" },
-      baselineColor: "#666666"
+      baselineColor: "#666666",
     },
     series: {
       0: { color: "#4ade80" },
-      1: { color: "#22c55e" }
+      1: { color: "#22c55e" },
     },
     lineWidth: 3,
     pointSize: 5,
     animation: {
       duration: 1000,
-      easing: "out"
+      easing: "out",
     },
     cssClassNames: {
-      chartArea: 'weather-chart'
-    }
+      chartArea: "weather-chart",
+    },
   };
 
   // Create and draw the chart
