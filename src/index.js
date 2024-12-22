@@ -136,46 +136,50 @@ function drawChart() {
   // Set chart options
   const options = {
     backgroundColor: "transparent",
-    width: "100%",
-    height: "100%",
+    width: 800, // Set fixed width
+    height: 400, // Set fixed height
     chartArea: {
-      left: "10%",
-      right: "5%",
       top: "15%",
-      bottom: "10%",
+      bott: "15%",
+      // Center the graph in its container 
+      left: "15%",
+      right: "15%",
       width: "85%",
-      height: "75%",
+      height: "70%", // Reduced height to prevent overflow
     },
     title: {
       textStyle: {
-        color: "#f97316", // Orange color
+        color: "#f97316", 
         fontSize: 16,
-      },
+      }
     },
     legend: {
       textStyle: { color: "#ffffff" },
-      position: "top",
+      position: "top"
     },
     hAxis: {
       textStyle: { color: "#ffffff" },
       gridlines: { color: "#444444" },
-      baselineColor: "#666666",
+      baselineColor: "#666666"
     },
     vAxis: {
       textStyle: { color: "#ffffff" },
       gridlines: { color: "#444444" },
-      baselineColor: "#666666",
+      baselineColor: "#666666"
     },
     series: {
       0: { color: "#4ade80" },
-      1: { color: "#22c55e" },
+      1: { color: "#22c55e" }
     },
     lineWidth: 3,
     pointSize: 5,
     animation: {
       duration: 1000,
-      easing: "out",
+      easing: "out"
     },
+    cssClassNames: {
+      chartArea: 'weather-chart'
+    }
   };
 
   // Create and draw the chart
