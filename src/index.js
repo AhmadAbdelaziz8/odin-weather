@@ -135,11 +135,47 @@ function drawChart() {
 
   // Set chart options
   const options = {
-    title: "5-Day Weather Forecast",
-    hAxis: { title: "Date" },
-    vAxis: { title: "Temperature (°C)" },
-    legend: { position: "bottom" },
-    curveType: "function",
+    backgroundColor: "transparent",
+    width: "100%",
+    height: "100%",
+    chartArea: {
+      left: "10%",
+      right: "5%",
+      top: "15%",
+      bottom: "10%",
+      width: "85%",
+      height: "75%",
+    },
+    title: {
+      textStyle: {
+        color: "#f97316", // Orange color
+        fontSize: 16,
+      },
+    },
+    legend: {
+      textStyle: { color: "#ffffff" },
+      position: "top",
+    },
+    hAxis: {
+      textStyle: { color: "#ffffff" },
+      gridlines: { color: "#444444" },
+      baselineColor: "#666666",
+    },
+    vAxis: {
+      textStyle: { color: "#ffffff" },
+      gridlines: { color: "#444444" },
+      baselineColor: "#666666",
+    },
+    series: {
+      0: { color: "#4ade80" },
+      1: { color: "#22c55e" },
+    },
+    lineWidth: 3,
+    pointSize: 5,
+    animation: {
+      duration: 1000,
+      easing: "out",
+    },
   };
 
   // Create and draw the chart
@@ -147,4 +183,9 @@ function drawChart() {
     document.getElementById("curve_chart")
   );
   chart.draw(data, options);
+
+  // Responsive resize
+  window.addEventListener("resize", () => {
+    chart.draw(data, options);
+  });
 }

@@ -135,12 +135,8 @@ body {
   padding: var(--padding);
   box-sizing: border-box;
 }
-.weather-details-container > h2 {
-  /* text-align: start; */
-  /* align-self: flex-start; */
-}
-.weather-details-card,
-.graph-card {
+
+.weather-details-card {
   width: 70%;
   height: 50%;
   padding: var(--padding);
@@ -183,11 +179,35 @@ body {
   margin: 20px;
 }
 
-/* Container for the graph with flexible sizing */
+/* Adjust the graph container */
+/* Container for the graph */
+/* Container for the graph */
 .weather-forecast-graph {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  height: auto; /* Allow height to adjust automatically */
   margin-top: 20px;
+  padding: 0 20px; /* Add some padding for spacing */
+}
+
+/* Adjust the graph card container */
+.graph-card {
+  width: 100%;
+  max-width: 800px; /* Set maximum width */
+  height: 400px; /* Fixed height for better control */
+  padding: var(--padding);
+  border-radius: 30px;
+  box-shadow: var(--box-shadow-color);
+  background-color: var(--secondary-color);
+  overflow: hidden; /* Ensure no overflow from the chart */
+}
+
+/* Adjust the chart itself to fit the container */
+#curve_chart {
+  width: 100%; /* Ensure chart fills its parent container */
+  height: 100%; /* Ensure chart fits within the container's height */
+  background-color: transparent; /* Set chart's background to transparent */
 }
