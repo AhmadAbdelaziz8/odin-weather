@@ -2,7 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  mode: "development",
+  mode: "development", // You can change to 'production' when deploying
   entry: "./src/index.js",
   output: {
     filename: "main.js",
@@ -10,8 +10,11 @@ module.exports = {
     clean: true,
   },
   devServer: {
-    static: "./dist",
+    static: path.join(__dirname, "dist"), // Correct way to serve static files
     hot: true,
+    port: 9000, // You can choose another port if needed
+    open: true, // Automatically opens the browser
+    historyApiFallback: true, // Useful for SPAs
   },
   module: {
     rules: [
@@ -37,7 +40,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./index.html",
+      template: "./index.html", // Your HTML template
     }),
   ],
 };
